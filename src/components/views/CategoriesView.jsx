@@ -22,9 +22,21 @@ const CategoriesView = () => {
       optimisticUICategoryObject,
     ]);
   };
+
+  const handleCategoryRemoved = (categoryToBeDeletedName) => {
+    setAllCategories((existingCategories) =>
+      existingCategories.filter(
+        (category) => category.name !== categoryToBeDeletedName
+      )
+    );
+  };
+
   return (
     <div>
-      <CategoriesList categories={allCategories} />
+      <CategoriesList
+        categories={allCategories}
+        handleCategoryRemoved={handleCategoryRemoved}
+      />
       {allCategories.length > 0 ? (
         <AddCategory
           categories={categories}

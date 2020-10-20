@@ -2,7 +2,7 @@ const { categoriesTable } = require("../airtable");
 const formattedReturn = require("../formattedReturn");
 module.exports = async (event) => {
   try {
-    const { id, ...fields } = JSON.parse(event.body);
+    const { id } = JSON.parse(event.body);
     const deletedRecord = await categoriesTable.destroy([id]);
     return formattedReturn(200, deletedRecord);
   } catch (error) {

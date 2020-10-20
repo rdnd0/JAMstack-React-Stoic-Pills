@@ -1,7 +1,7 @@
 import React from "react";
 import CategoryItem from "./CategoryItem";
 
-function CategoriesList({ categories = [] }) {
+function CategoriesList({ categories = [], handleCategoryRemoved }) {
   return (
     <div>
       <header>Stoic categories</header>
@@ -9,7 +9,11 @@ function CategoriesList({ categories = [] }) {
         if (category.isActive) {
           return (
             <div key={category.id}>
-              <CategoryItem text={category.name} />
+              <CategoryItem
+                text={category.name}
+                categoryObj={category}
+                handleCategoryRemoved={handleCategoryRemoved}
+              />
             </div>
           );
         }
