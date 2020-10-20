@@ -37,7 +37,12 @@ const ModifyCategory = ({ text, categoryObj }) => {
       />
     );
   } else {
-    return <span onClick={() => setIsModifying(true)}>{categoryName}</span>;
+    return (
+      <>
+        <span>{categoryName}</span>
+        <span onClick={() => setIsModifying(true)}>modify</span>
+      </>
+    );
   }
 };
 
