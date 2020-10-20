@@ -1,11 +1,11 @@
 import React from "react";
 import DeleteCategory from "./DeleteCategory";
+import ModifyCategory from "./ModifyCategory";
 
 const CategoryItem = (props) => {
-  const { text = "" } = props;
   return (
     <div>
-      <span>{text}</span>
+      <ModifyCategory {...props} />
       <DeleteCategory {...props} />
     </div>
   );
