@@ -15,8 +15,9 @@ const AddCategory = ({ categories = [], handleNewCategoryAdded }) => {
     if (isCategoryAlreadyInTheList) {
       setError(categoryExistsError);
     } else {
-      await addCategoryToDB(inputCategoryLowerCased);
-      handleNewCategoryAdded(inputCategoryLowerCased);
+      const categoryAdded = await addCategoryToDB(inputCategoryLowerCased);
+      const { id, fields } = categoryAdded[0];
+      handleNewCategoryAdded(id, fields);
       setCategoryName("");
     }
   };

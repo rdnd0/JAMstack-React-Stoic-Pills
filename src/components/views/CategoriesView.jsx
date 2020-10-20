@@ -11,11 +11,10 @@ const CategoriesView = () => {
     setAllCategories(categories);
   }, [categories]);
 
-  const handleNewCategoryAdded = (category) => {
+  const handleNewCategoryAdded = (id, fields) => {
     const optimisticUICategoryObject = {
-      id: category,
-      name: category,
-      isActive: true,
+      id,
+      ...fields,
     };
     setAllCategories((existingCategories) => [
       ...existingCategories,

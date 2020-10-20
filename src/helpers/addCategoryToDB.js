@@ -10,6 +10,8 @@ const addCategoryToDB = async (inputCategory) => {
     const message = `An error has occured: ${res.status}`;
     throw new Error(message);
   }
+  const formatedRes = res.json();
+  return formatedRes;
 };
 
 export default addCategoryToDB;
