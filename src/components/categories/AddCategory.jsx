@@ -27,15 +27,24 @@ const AddCategory = ({ categories = [], handleNewCategoryAdded }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleAddingCategory}>
+    <div className="flex justify-center rounded-lg border overflow-hidden lg:flex-row ">
+      <form onSubmit={handleAddingCategory} className="py-8">
         <input
+          className="py-3 px-6 bg-white text-gray-700 outline-none placeholder-gray-500 focus:placeholder-transparent"
           type="text"
+          name="email"
+          placeholder="Add new category"
+          aria-label="Add new category"
           onChange={inputCategory}
           value={categoryName}
           onClick={() => setError("")}
         />
-        <button type="submit">submit</button>
+        <button
+          className="py-3 px-4  text-sm font-semibold uppercase text-white transition duration-200 bg-purple-500 rounded-lg hover:bg-purple-700 focus:outline-none"
+          type="submit"
+        >
+          Add
+        </button>
         {error && <span>{error}</span>}
       </form>
     </div>
